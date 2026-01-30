@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Agent Login | Imo Properties</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./login.js">
+</head>
+<body class="login-page">
+
+<header class="header">
+  <div class="logo">Imo<span>Properties</span></div>
+</header>
+
+<form id="login-form" class="property-form">
+  <h2>Agent Login</h2>
+  <input type="email" placeholder="Email" id="email" required>
+  <input type="password" placeholder="Password" id="password" required>
+  <button type="submit">Login</button>
+</form>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="js/login.js">
+    const firebaseConfig = {
+        apiKey: "AIzaSyBUH-w7tlIAQuhCgAfsQZm_XXTVIUzYsz8",
+        authDomain: "imoproperties.firebaseapp.com",
+        projectId: "imoproperties",
+        storageBucket: "imoproperties.firebasestorage.app",
+        messagingSenderId: "493250223554",
+        appId: "1:493250223554:web:53ce9913ec708742e30a5b"
+      };
+      
+    const auth = firebase.auth();
+document.getElementById("login-form").addEventListener("submit", e=>{
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  auth.signInWithEmailAndPassword(email,password)
+    .then(user=>{
+      alert("Login successful!");
+      window.location.href = "post-property.html";
+    })
+    .catch(err=> alert(err.message));
+});
+
+</script>
+
+</body>
+</html>
