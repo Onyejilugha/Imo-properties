@@ -1,4 +1,5 @@
 // Firebase Config
+alert("post-property.js loaded");
 const firebaseConfig = {
     apiKey: "AIzaSyBUH-w7tlIAQuhCgAfsQZm_XXTVIUzYsz8",
     authDomain: "imoproperties.firebaseapp.com",
